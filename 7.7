@@ -1,0 +1,15 @@
+#include<iostream>
+#include<list>
+using namespace std;
+int main(){
+    list<int> numbers = {1, 2, 3, 4, 5};
+    list<int>::iterator itr = numbers.begin();
+
+    // Move iterator to the third element
+    advance(itr, 2);
+    cout << "Third Element: " << *itr << endl;
+    // Move iteraror to the fifth element
+    advance (itr , 2);
+    cout<<" Fifth element :"<<*itr<<endl;
+    return 0;
+}
