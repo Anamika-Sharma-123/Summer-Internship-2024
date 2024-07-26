@@ -1,0 +1,36 @@
+#include<iostream>
+#include<list>
+using namespace std;
+
+void addElement(list<int>& numbers, int position, int element) {
+    if (numbers.empty()) {
+        numbers.push_front(element); // Add element to the beginning if the list is empty
+    } else {
+        list<int>::iterator itr = numbers.begin();
+        advance(itr, position); // Move iterator to the specified position
+        numbers.insert(itr, element); // Insert element at the specified position
+    }
+}
+
+int main() {
+    list<int> numbers = {1, 2, 3, 4, 5};
+    list<int>::iterator itr = numbers.begin();
+
+    // Print second and fourth elements
+    ++itr;
+    cout << "Second Element: " << *itr << endl;
+    ++itr;
+    ++itr;
+    cout << "Fourth Element: " << *itr << endl;
+
+    // Add an element
+    addElement(numbers, 2, 10); // Add element '10' at position 2
+
+    // Print the updated list
+    cout << "\nUpdated list: ";
+    for (int num : numbers) {
+        cout << num << " ";
+    }
+
+    return 0;
+}
